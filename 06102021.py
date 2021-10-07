@@ -61,7 +61,13 @@ the program should print
 4 2 1 3 9
 """
 if(level==3):
-    fiveDigit = int(input("Please enter a five-digit number: "))
-    for i in range(16, -1, -4):
-        print('\r', (i)*' ', fiveDigit % 10, end='', sep='')
-        fiveDigit //= 10
+    # n + (n-1)*spaces - 1
+    n = int(input("Please enter character count: "))
+    spaces = int(input("Please enter the desired spaces between two characters: "))
+    digits = int(input("Please enter a five-digit number: "))
+
+    length = n + (n-1)*spaces - 1
+    # Algorithm
+    for i in range(length, -1, -(spaces+1)):
+        print('\r', (i)*' ', digits % 10, end='', sep='')
+        digits //= 10
