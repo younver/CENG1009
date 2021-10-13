@@ -112,16 +112,20 @@ if(level==3):
     # n + (n-1)*spaces - 1
 
     n = int(input("Please enter character count: "))
-
     spaces = int(input("Please enter the desired spaces between two characters: "))
     number = int(input("Please enter a number: "))
 
 
+   
+    # Algorithm 1
+    """
     length = n + (n-1)*spaces - 1
 
-    # Algorithm
-
     for i in range(length, -1, -(spaces+1)):
-
         print('\r', (i)*' ', number % 10, end='', sep='')
         number //= 10
+    """
+    # Algorithm 2
+    for i in range(n-1,-1,-1):
+        print(number // 10**i, spaces * ' ', sep='', end='')
+        number %= 10**i
