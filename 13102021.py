@@ -66,18 +66,18 @@ Write a separate application that inputs an encrypted four-digit integer and dec
 """
 
 if(level==3):
-    four_digits = int(input("Please enter your password: "))    #123456
+    digits = int(input("Please enter your password: "))    #123456
     n = len(str(four_digits))   #6
     encrypted_digits = ""
 
     # Shifting
-    shift = four_digits % 100   #56
-    four_digits += shift * (10 ** n - 1)    #56123400
-    four_digits //= 10 ** 2     #561234
+    shift = digits % 100   #56
+    digits += shift * (10 ** n - 1)    #56123400
+    digits //= 10 ** 2     #561234
 
     # Encrypting
     for i in range(n-1, -1, -1):
-        encrypted_digits += str((four_digits // 10**i + 7) % 10)    #238901
-        four_digits %= 10 ** i
+        encrypted_digits += str((digits // 10**i + 7) % 10)    #238901
+        digits %= 10 ** i
 
     print("Password saved to database: ", encrypted_digits)
